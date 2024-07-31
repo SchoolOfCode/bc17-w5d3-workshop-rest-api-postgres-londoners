@@ -34,7 +34,7 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 // Endpoint to retrieve all authors
 app.get("/authors/", async function (req, res) {
   const authors = await getAuthors();
-  res.status(200).json({ status: "success", data: authors });
+  res.status(200).json({ status: "success", data: authors.rows });
 });
 
 // Endpoint to retrieve a specific author by id

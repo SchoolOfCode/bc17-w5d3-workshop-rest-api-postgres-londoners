@@ -2,11 +2,23 @@
 import { pool } from "./db/index.js";
 
 export async function getAuthors() {
-  // Query the database and return all authors
-}
+  // Query the databasae and return all authors
+  try {
+    const authors = await pool.query(`
+    SELECT * FROM authors;
+    `);
+    console.log("Data load successful!");
+    return authors;
+  } catch(error) {
+    console.error("Database load failed!", error);
+  }
+  
+};
 
 export async function getAuthorById(id) {
   // Query the database and return the author with a matching id or null
+  //SELECT * FROM authors
+  //WHERE authors.id = id
 }
 
 export async function createAuthor(author) {
