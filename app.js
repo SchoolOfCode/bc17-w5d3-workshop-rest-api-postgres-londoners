@@ -53,7 +53,8 @@ app.get("/authors/:id", async function (req, res) {
 // Endpoint to create a new author
 app.post("/authors/", async function (req, res) {
   const data = req.body;
-  const author = await createAuthor(data);
+  const userInputArray = data.split(" ")
+  const author = await createAuthor(userInputArray);
   res.status(201).json({ status: "success", data: author });
 });
 

@@ -28,9 +28,20 @@ export async function getAuthorById(id) {
 
 }
 
-export async function createAuthor(author) {
+export async function createAuthor(array1) {
   // Query the database to create an author and return the newly created author
-}
+  try {
+    const array1 = [value1, value2]
+    const queryText = 'INSERT INTO authors (first_name, last_name) VALUES ($1, $2)'
+    const result = await pool.query(queryText, [array1]);
+    console.log("Data load successful!");
+      return result;
+  }   catch(error) {
+    console.error("Database load failed!", error);
+  }
+      
+  }
+
 
 export async function updateAuthorById(id, updates) {
   // Query the database to update an author and return the newly updated author or null
