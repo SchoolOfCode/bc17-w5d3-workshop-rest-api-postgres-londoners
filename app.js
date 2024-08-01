@@ -47,7 +47,7 @@ app.get("/authors/:id", async function (req, res) {
       .status(404)
       .json({ status: "fail", data: { msg: "Author not found" } });
   }
-  res.status(200).json({ status: "success", data: author });
+  res.status(200).json({ status: "success", data: author.rows });
 });
 
 // Endpoint to create a new author
